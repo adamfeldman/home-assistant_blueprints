@@ -68,7 +68,8 @@ action:
   - service: scene.create
     data:
       scene_id: all_lights_snapshot
-      snapshot_entities: !input light_target
+      snapshot_entities: >
+        {{ !input light_target | replace('entity_id:','') }}
   - choose:
       - conditions:
           - "{{ scene_target == 'scene.none' }}"
