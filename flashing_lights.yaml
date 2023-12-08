@@ -69,8 +69,7 @@ action:
     data:
       scene_id: all_lights_snapshot
       snapshot_entities: >
-        {% set var = '!input light_target' %}
-        {{ var | replace('entity_id:','') | replace('- ','') | trim | replace('\n',',') }}
+        {{ """!input light_target""" | replace('entity_id:','') | replace('- ','') | trim | replace('\n',',') }}
   - choose:
       - conditions:
           - "{{ scene_target == 'scene.none' }}"
